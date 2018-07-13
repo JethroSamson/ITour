@@ -1,0 +1,63 @@
+extends ../../../../templates/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/posts.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/sidebar.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/cities/manila.css")
+
+    script(src="/assets/font-awesome-4.7.0/css/script.js")
+    body
+        .banner
+            img(src='/images/uploaded_images/mandaluyong.png', position="center")
+        .card.bannertxt
+            p Mandaluyong City is a city in the Philippineslocated directly east of Manila. It is one of the sixteen cities which, along with the Municipality of Pateros, make upMetro Manila, the National Capital Region. 
+            p MANDALUYONG is a city that lies at the heart of Metropolitan Manila in the Republic of the Philippines. Mandaluyong’s remarkable rate of development since the early 80’s established the city as one of the most progressive economic centers in the country.
+        .feed
+            each place in places
+                figure.snip1253
+                    .image
+                        img(src='/images/city_images/'+ place.strFirstPic, alt='sample52')
+                    figcaption
+                        h3 #{place.strPlaceName}
+                        p
+                            | #{place.strTeaser}
+                            i.ion-eye
+                                p
+                                    form(method="POST"  action="/home/-/place")
+                                        .control
+                                            input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                            input.form-control.button.btn-primary.see(type="submit" value="See More")
+
+        .fixed-button
+            a.btn.btn-info(href='', aria-hidden='true') ITour:Mandaluyong
+        .container_login
+        // Modal
+        #search.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        h2.modal-title Search Place: Mandaluyong
+                        button.close(type='button', data-dismiss='modal') ×
+                    .modal-body
+                        #div(style="border-radius:5px;")
+                            input#searchBox.search_box.form-control.control-primary(type='text' style="height:30px;" placeholder="type any keyword")
+                            #table-wrapper(style="position:relative;")
+                                #table-scroll(style="height:400px;overflow:auto;")
+                                    table(style="font-size:15px; width:200px;")
+                                        tr
+                                        td
+                                            table#dataTable.table
+                                                tr
+                                                    th.qwe Name of the Place
+                                                    th.qwe Location
+                                                    th
+
+                                                each place in places   
+                                                    tr
+                                                        td.ty #{place.strPlaceName}
+                                                        td.ty #{place.strLoc}
+                                                        td.ty
+                                                            form(method="POST"  action="/home/-/place")
+                                                                .control
+                                                                    input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                                                    input.form-control.button.btn-inverse(type="submit" value="See More")

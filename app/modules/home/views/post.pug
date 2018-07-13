@@ -1,0 +1,22 @@
+extends ../../../templates/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/posts.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/sidebar.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/cities/manila.css")
+
+
+    script(src="/assets/font-awesome-4.7.0/css/script.js")
+    body
+        .banner
+            img(src='/images/uploaded_images/mainbanner.png', position="center")
+        .card.bannertxt
+        .feed
+            each post in poststab
+                figure.snip1253
+                    .image
+                        img(src='/images/profile_pictures/'+ post.strPPic alt='sample52')
+                    figcaption
+                        h3 #{post.datPostDate}
+                        p
+                            | #{post.txtPDetails}

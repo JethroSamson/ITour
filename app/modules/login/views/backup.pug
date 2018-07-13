@@ -1,0 +1,116 @@
+extends ../../../templates/master.pug
+
+block content
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/landingpage.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/Landingmodal.css")
+    .body
+        #myCarousel.carousel.slide(data-ride='carousel' data-interval="2000")
+          ol.carousel-indicators
+            li.active(data-target='#myCarousel', data-slide-to='0')
+            li(data-target='#myCarousel', data-slide-to='1')
+            li(data-target='#myCarousel', data-slide-to='2')
+            li(data-target='#myCarousel', data-slide-to='3')     
+          .carousel-inner(role='listbox')          
+            .item.active       
+              img.bg(src='/images/uploaded_images/palawan.jpg', position="center")
+              .carousel-caption
+                h3.banner Itour: Manila
+            .item
+              img.bg(src='/images/uploaded_images/palawan1.jpg')
+              .carousel-caption 
+                //- h3 Dont know where and what activities to do?
+            .item
+              img.bg(src='/images/uploaded_images/palawan2.jpg')
+              .carousel-caption
+                //- h3 Enjoy and have fun
+            .item
+              img.bg(src='/images/uploaded_images/palawan4.jpg')
+              .carousel-caption
+                //- p2 ITour: Metro Manila
+                //- p Plan your vacation now
+          // Left and right controls
+          a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+            span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+            span.sr-only Previous
+          a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+            span.sr-only Next
+          #banner_description
+            ul
+              a(type='button', data-toggle='modal', data-target='#myModal') Log In
+              a| |
+              a(type='button', data-toggle='modal', data-target='#mysignup') Sign Up
+
+    .container_login
+      // Modal
+      #myModal.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h2.modal-title Log in
+            .modal-body
+              form(method="POST" action="/login/login")
+                  .group
+                  label.label(for='user')
+                  |Username:&nbsp
+                  input.input1(type="text" name="user", required)
+                  br
+                  br
+                  .group
+                  label.label(for='pass')
+                  |Password:&nbsp
+                  input.input2(type="password" name="password", required)
+                  br
+                  br
+                  .modal-footer
+                    input.button5.is-info.is-outlined(type='button', data-dismiss='modal' value="Cancel") 
+                    |&nbsp
+                    input.button6.is-info.is-outlined(type='submit', value='Log In')
+          
+    .container_signup
+      // Modal
+      #mysignup.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-contentsign
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h2.modal-title Create your Account
+            .modal-body
+              h4 Personal Information
+              form(method="POST" action="/login")
+                .control-group
+                  label.control-label(for='name') Name
+                  .controls
+                    input#name(type='text', placeholder='Firstname' , name="fname" required)
+                    |&nbsp &nbsp
+                    input#name(type='text', placeholder='Lastname', name="lname")
+                .control-group
+                  label.control-label(for='email') Email
+                  .controls
+                    input#email(type='email',  placeholder='' name="email")
+                br
+                h4 Account
+                .control-group
+                  label.control-label(for='username') Username
+                  .controls
+                    input#username(type='text', placeholder='', name="user" required)
+                .control-group
+                  label.control-label(for='Password') Password
+                  .controls
+                    input#Password(type='password', placeholder='', name="password" required)
+                  label.control-label(for='Confirm') Confirm Password
+                  .controls
+                    input#Confirm(type='password', placeholder='', name="confirm" required)
+                br
+                .modal-footer
+                  input.button5.is-info.is-outlined(type='button', data-dismiss='modal' value="Cancel") 
+                  |&nbsp
+                  input.button6.is-info.is-outlined(type='submit', value='Sign up')

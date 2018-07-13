@@ -1,0 +1,63 @@
+extends ../../../../templates/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/posts.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/sidebar.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/cities/manila.css")
+
+    script(src="/assets/font-awesome-4.7.0/css/script.js")
+    body
+        .banner
+            img(src='/images/uploaded_images/malabon.png', position="center")
+        .card.bannertxt
+            p Residing in the northern part of Metro Manila, Malabon never off beat in the providing exciting things to do. From historical sites to cultural attractions, explore the exhaustive list of all other local attractions in Malabon. Discover new places to see and unique things to do nearby Malabon. Check out list of attractions and activities to try, it will help you plan a trip in Malabon. 
+            p Famous for its ancestral homes that could be compared to the old Spanish colonial mansions in Vigan, the city of Malabon is one of the cities that make up the Metropolitan Manila. Best things to do in Malabon is to visit top attractions such as historical monuments, natural attractions, adventurous and entertaining activities. 
+        .feed
+            each place in places
+                figure.snip1253
+                    .image
+                        img(src='/images/city_images/'+ place.strFirstPic, alt='sample52')
+                    figcaption
+                        h3 #{place.strPlaceName}
+                        p
+                            | #{place.strTeaser}
+                            i.ion-eye
+                                p
+                                    form(method="POST"  action="/home/-/place")
+                                        .control
+                                            input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                            input.form-control.button.btn-primary.see(type="submit" value="See More")
+
+        .fixed-button
+            a.btn.btn-info(href='', aria-hidden='true') ITour:Malabon
+        .container_login
+        // Modal
+        #search.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        h2.modal-title Search Place: Malabon
+                        button.close(type='button', data-dismiss='modal') ×
+                    .modal-body
+                        #div(style="border-radius:5px;")
+                            input#searchBox.search_box.form-control.control-primary(type='text' style="height:30px;" placeholder="type any keyword")
+                            #table-wrapper(style="position:relative;")
+                                #table-scroll(style="height:400px;overflow:auto;")
+                                    table(style="font-size:15px; width:200px;")
+                                        tr
+                                        td
+                                            table#dataTable.table
+                                                tr
+                                                    th.qwe Name of the Place
+                                                    th.qwe Location
+                                                    th
+
+                                                each place in places   
+                                                    tr
+                                                        td.ty #{place.strPlaceName}
+                                                        td.ty #{place.strLoc}
+                                                        td.ty
+                                                            form(method="POST"  action="/home/-/place")
+                                                                .control
+                                                                    input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                                                    input.form-control.button.btn-inverse(type="submit" value="See More")

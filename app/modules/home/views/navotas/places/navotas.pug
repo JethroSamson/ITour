@@ -1,0 +1,23 @@
+extends ../../../../../templates/navbar.pug
+
+block content
+    link(rel='stylesheet', href='/assets/css/info/marikina/shoe_museum.css')
+    body
+        each place in places
+            .banner
+                img(src='/images/uploaded_images/navotas.png', position="center")
+                br
+                br
+            .main_wrapper
+                h2.title #{place.strPlaceName}
+                hr
+                #desc
+                    p.desc #{place.strInfo}
+                .gen
+                    h3.text General Information
+                .laman
+                    h2.text1 Location:
+                        p.qw #{place.strLoc}
+                    h2.text1 Admission:
+                        br
+                        p.qw #{place.strAdmission}

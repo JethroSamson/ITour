@@ -1,0 +1,35 @@
+extends ../../../templates/master.pug
+
+block content
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/landingpage.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/Landingmodal.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/trial.css")
+    .body
+        .img.half
+            span.logo
+                img(src='/images/profile_pictures/blank.jpg',)
+                         .alert.invalid
+          span.closebtn(onclick="this.parentElement.style.display='none';")
+            |Log in First to see home page
+        .alert.incorrect
+          span.closebtn(onclick="this.parentElement.style.display='none';")
+            |Incorrect Username or Password
+        .alert.xmatch
+          span.closebtn(onclick="this.parentElement.style.display='none';")
+            |Submission Failed ,
+            |Password didnt match
+        .alert.taken
+          span.closebtn(onclick="this.parentElement.style.display='none';")
+            |Submission Failed ,
+            |Username already exist
+        .alert.noroute
+          span.closebtn(onclick="this.parentElement.style.display='none';")
+            |Page not Found
+        .alert.signsucc
+          span.closebtn(onclick="this.parentElement.style.display='none';")
+            |Sign up Success!!

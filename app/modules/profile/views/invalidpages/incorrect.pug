@@ -1,0 +1,142 @@
+extends ../../../../templates/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/login.css")
+    .main-body.user-profile
+        each user in usertab
+            .page-body
+                .card-block
+                    .view-info
+                        .row
+                            .col-lg-12
+                                .cover-profile
+                                    .profile-bg-img
+                                        img.profile-bg-img.img-fluid(src='/assets1/images/user-profile/bg-img1.jpg', alt='bg-img')
+                                        .card-block.user-info
+                                            .col-md-12
+                                                .media-left
+                                                    if user.strProfilePicture == 'NULL'
+                                                        a.profile-image(href='#')
+                                                            img.user-img.img-circle(src="/images/profile_pictures/blank.jpg", alt='user-img')
+                                                    else
+                                                        a.profile-image(href='#')
+                                                            img.user-img.img-circle(src='/images/profile_pictures/'+ user.strProfilePicture, height="125px" width="125px")
+                                                .media-body.row
+                                                    .col-lg-12
+                                                        .user-title
+                                                            h2 #{user.strFname} #{user.strLname}
+                                                            span.text-white #{user.strInfo}
+                                                    div
+                                                        .pull-right.cover-btn
+                                                            a.button.btn.btn-primary.m-r-10.m-b-5(class="button", href="#edit")
+                                                                |  Edit Profile
+                .alert.incorrectedit
+                    span.closebtn(onclick="this.parentElement.style.display='none';")
+                        |Password Incorrect
+                .edit-info#edit
+                    .card
+                        .row
+                            .col-lg-12
+                                .general-info
+                                    form(method="POST" action="/profile/-/edit" enctype='multipart/form-data')
+                                        .row
+                                            .col-lg-6
+                                                table.table
+                                                    tbody
+                                                        tr
+                                                            h3 Edit your Profile                                                            
+                                                            td
+                                                                h5 Profile Picture
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-user
+                                                                    img#uploadPreview(style='width: 100px; height: 100px;' src='/images/profile_pictures/'+ user.strProfilePicture )
+                                                                    input.form-control.file-input(id="uploadImage" type='file', name='profilepic', accept='image/*' onchange="PreviewImage();")  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-user
+                                                                    input.form-control(type='text', placeholder='Username' name="user"  required)
+                                                        tr
+                                                            td
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-user
+                                                                    input.form-control(type='text', placeholder='First Name'  name="fname" required)
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-user
+                                                                    input.form-control(type='text', placeholder='Last Name'  name="lname" required)
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-user
+                                                                    input.form-control(type='email', placeholder='Email'  name="email" required)
+
+                                                    // end of table col-lg-6
+                                            .col-lg-6
+                                                table.table
+                                                    tbody
+                                                        tr
+                                                            br
+                                                            br
+                                                            td
+                                                                h5 You can use your old password  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-ui-password
+                                                                    input.form-control(type='password', placeholder='Old Password' name="oldpass" required)
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-ui-password
+                                                                    input.form-control#new(type='password', placeholder='New Password' name="newpass" required)                                                
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-ui-password
+                                                                    input.form-control#confirm(type='password', placeholder='Confirm Password' name="confirm" required)                                                    
+                                                        tr
+                                                            td
+                                                                .form-group
+                                                                    textarea#exampleTextarea.form-control(rows='4' placeholder='Short Description Of You' name="info" maxlength='30') #{user.strInfo}
+                                                        tr
+                                                            td.pulled-right
+                                                                    input.btn.btn-primary.waves-effect.waves-light.m-r-20(type="submit" value="Save" )
+                                                                    input.btn.btn-primary.waves-effect(type="reset" value='Clear Fields') 
+
+
+    script.
+        function PreviewImage() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+            oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+            };
+            };
+
+//-   .container_post
+//-       // Modal
+//-       #post.modal.fade(role='dialog')
+//-         .modal-dialog
+//-           // Modal content
+//-           .modal-content
+//-             .modal-header
+//-               button.close(type='button', data-dismiss='modal') ×
+//-               h2.modal-title Post
+//-             .modal-body
+//-                   form(method="POST" action="/post" enctype='multipart/form-data')
+//-                     .control-group
+//-                         label.control-label(for='username') Title
+//-                         .controls
+//-                             input#title(type='text', name="title" required)
+//-                     .field
+//-                         .control
+//-                             label.label8 Profile Picture
+//-                             br
+//-                             input.file-input(type='file', name='postpic', accept='image/*')
+//-                     hr(style='border: 0.5px solid #990000')
+//-                     .control-group
+//-                         label.control-label(for='username') Your Experience
+//-                         .controls
+//-                             input#username(type='text', name='expi' required)
+//-                     .modal-footer
+//-                         input.button5.is-info.is-outlined(type='button', data-dismiss='modal' value="Cancel") 
+//-                         |&nbsp
+//-                         input.button6.is-info.is-outlined(type='submit', value='Post')

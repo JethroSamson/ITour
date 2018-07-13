@@ -1,0 +1,149 @@
+extends ../../../templates/master.pug
+
+block content
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    //- link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/landingpage.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/Landingmodal.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/trial.css")
+    script(src='/assets/font-awesome-4.7.0/css/assets2/js/ie/html5shiv.js')
+    link(rel='stylesheet', href='/assets/font-awesome-4.7.0/css/assets2/css/main.css')
+    link(rel='stylesheet', href='/assets/font-awesome-4.7.0/css/assets2/css/ie8.css')
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/login.css")
+    body
+        .alert.signsucc
+          span.closebtn(onclick="this.parentElement.style.display='none';")
+            |Sign up Success!!
+        .img2.half
+            span.buttons
+                a.link(type='button', data-toggle='modal', data-target='#myModal') Log In
+                |&nbsp&nbsp&nbsp
+                a.link(type='button', data-toggle='modal', data-target='#mysignup') Sign Up
+
+        #myCarousel.carousel.slide(data-ride='carousel' data-interval="2000")
+          ol.carousel-indicators
+            li.active(data-target='#myCarousel', data-slide-to='0')
+            li(data-target='#myCarousel', data-slide-to='1')
+            li(data-target='#myCarousel', data-slide-to='2')
+            li(data-target='#myCarousel', data-slide-to='3')     
+          .carousel-inner(role='listbox')          
+            .item.active       
+              img.bg(src='/images/uploaded_images/conquer.png', position="center")
+              .carousel-caption
+            .item
+              img.bg(src='/images/uploaded_images/create.png', position='center')
+              .carousel-caption 
+            .item
+              img.bg(src='/images/uploaded_images/experience.png', position='center')
+              .carousel-caption
+            .item
+              img.bg(src='/images/uploaded_images/explore.png' position='center')
+              .carousel-caption
+          a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+            span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+            span.sr-only Previous
+          a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+            span.sr-only Next
+        .card
+          img.logo(src='/assets/images/upload_images/logo.png')
+          .buttons2
+              a.foot1(type='button', data-toggle='modal', data-target='#about') About Us
+              br
+              br
+              a.foot(type='button', data-toggle='modal', data-target='#contact') Contact Details
+          .baba
+              h5.det ITour is a project of Team Manila © 2018
+    .container_login
+      // Modal
+      #myModal.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h2.modal-title Log in
+            .modal-body
+              form(method="POST" action="/login/login")
+                  .group
+                  label.label(for='user')
+                  |Username:&nbsp
+                  input.input1(type="text" name="user", required)
+                  .group
+                  label.label(for='pass')
+                  |Password:&nbsp
+                  input.input2(type="password" name="password", required)
+                  br
+                  br
+                  .modal-footer
+                    input.button5.is-info.is-outlined(type='button', data-dismiss='modal' value="Cancel") 
+                    |&nbsp
+                    input.button6.is-info.is-outlined(type='submit', value='Log In')
+          
+    .container_signup
+      // Modal
+      #mysignup.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-contentsign
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h2.modal-title Create your Account
+            .modal-body
+              h4 Personal Information
+              form.forms(method="POST" action="/login")
+                .group
+                  label.label(for='name')
+                  |Name
+                  input.input2(type='text', placeholder='Firstname' , name="fname" required)
+                  br
+                  input.input2(type='text', placeholder='Lastname', name="lname")
+                br
+                .group
+                  label.label(for='email')
+                  |Email
+                  input.input2(type='email',  placeholder='' name="email" required)
+                br
+                h4 Account
+                .group
+                  label.label(for='user')
+                  |Username
+                  input.input2(type='text',  placeholder='' name="user" required)
+                .control-group
+                  label.label(for='pass')
+                  |Password
+                  input.input2(type="password" name="password", required)
+                  label.label(for='confirm')
+                  |Confirm Password
+                  input.input2(type="password" name="confirm", required)
+                br
+                .modal-footer
+                  input.button5.is-info.is-outlined(type='button', data-dismiss='modal' value="Cancel") 
+                  |&nbsp
+                  input.button6.is-info.is-outlined(type='submit', value='Sign up')
+
+    .container_about
+      // Modal
+      #about.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h2.modal-title About Us
+            .modal-body
+              h3 ITour: Metro Manila
+    .container_contact
+      // Modal
+      #contact.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h2.modal-title Contact Us
+            .modal-body
+              h3 ITour@gmail.com

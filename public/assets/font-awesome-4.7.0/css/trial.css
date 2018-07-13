@@ -1,0 +1,100 @@
+.half{
+    background-image: url('/images/uploaded_images/mainbanner.png');
+    background-position: center;
+}
+.half{
+    width: 100%;
+    height: 50%;
+    background-repeat: repeat-x; 
+}
+a.link{
+    text-justify: center;
+    outline: 3px solid white;
+    font-size: 20px;
+    padding: 5px;
+    color: white;
+    text-decoration-style: none;
+}
+a:hover
+    {
+        color:skyblue;
+        border-bottom: 3px solid black;
+        text-decoration: none;
+    }
+.buttons{
+    position: absolute;
+    top: 250px;
+    left: 500px;
+    display: bottom;
+}
+#myCarousel{
+    width: 70%;
+    height: 50%;
+    float: left;
+}
+.item{
+    width: 100%;
+    height: 100%;
+}
+.carousel-inner{
+    width: 100%;
+    height: 100%;
+}
+.banner{
+    color: white;
+    font-size: 30px;
+    font-family: Arial;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.banner1{
+    height: 100px;
+    width: 100px;
+}
+.card{
+    float: right;
+    width:30%;
+    height: 50%;
+    border: 2px solid black;
+    background-color: white;
+
+}
+.logo{
+    width:130px;
+    height: 130px;
+    margin-top: 75px;
+    margin-left: 10px;
+}
+.foot{
+    text-justify: center;
+    outline: 3px solid black;
+    font-size: 20px;
+    padding: 5px;
+    color: black;
+}
+.buttons2{
+    position: absolute;
+    left: 50%;
+    top:25%;
+}
+.baba{
+    background-color: black;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    padding: -5px;
+    text-decoration-color: black;
+}
+.det{
+    font-family: Arial;
+}
+.foot1{
+    outline: 3px solid black;
+    font-size: 20px;
+    padding: 5px;
+    color: black;
+    padding-right: 50px;
+
+}

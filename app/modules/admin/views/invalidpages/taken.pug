@@ -1,0 +1,183 @@
+extends ../../../../templates/temp.pug
+
+block content
+              link(rel='stylesheet', href='/assets/css/info/admin.css')
+              .alert.taken
+                span.closebtn(onclick="this.parentElement.style.display='none';")
+                    |Place Already Added
+              form(method="POST" action="/admin" enctype='multipart/form-data')
+                .edit-info#edit
+                    .card
+                        .row
+                            .col-lg-12
+                                .general-info
+                                        .row
+                                            .col-lg-6
+                                                table.table
+                                                    tbody
+                                                        tr                                                          
+                                                            td
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-mail
+                                                                    .input.select.is-danger
+                                                                        select(name="city")
+                                                                          option(value='') -- Choose City --
+                                                                            option(value='Manila') Manila
+                                                                            option(value='Quezon City') Quezon City
+                                                                            option(value='Pasig') Pasig
+                                                                            option(value='Marikina') Marikina
+                                                                            option(value='San Juan') San Juan
+                                                                            option(value='Mandaluyong') Mandaluyong
+                                                                            option(value='Valenzuela') Valenzuela
+                                                                            option(value='Navotas') Navotas
+                                                                            option(value='Malabon') Malabon
+                                                                            option(value='Taguig') Taguig
+                                                                            option(value='Pateros') Pateros
+                                                                            option(value='Pasay') Pasay
+                                                                            option(value='Parañaque') Parañaque
+                                                                            option(value='Muntinlupa') Muntinlupa
+                                                                            option(value='Makati') Makati
+                                                                            option(value='Las Piñas') Las Piñas
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-edit
+                                                                    input.form-control#new(type='text', placeholder='Place Name' name="placename" required)
+                                                        tr  
+                                                            td
+                                                                h5 History  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-paper
+                                                                    textarea#exampleTextarea.form-control(rows='18' placeholder='History' name="history")
+                                                    // end of table col-lg-6
+                                            .col-lg-6
+                                                table.table
+                                                    tbody
+                                                        tr  
+                                                            br
+                                                            br
+                                                            td
+                                                                h5 Short Background  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-paper
+                                                                    textarea#exampleTextarea.form-control(rows='15' placeholder='Short Backgorund' name="brief" required)
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-map-pins
+                                                                    input.form-control#new(type='text', placeholder='Location' name="loc" required)                                                
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-social-google-map
+                                                                    textarea#exampleTextarea.form-control(rows='2' placeholder='Googgle Map Link' name="link" required)
+                    .card
+                        .row
+                            .col-lg-12
+                                .general-info
+                                        .row
+                                            .col-lg-6
+                                                table.table
+                                                    tbody
+                                                        tr
+                                                            td
+                                                                h5 Pictures
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-picture
+                                                                    img#uploadPreview(style='width: 100px; height: 100px;' )
+                                                                    input.form-control.file-input(id="uploadImage" type='file', name='pic1', accept='image/*' required, onchange="PreviewImage();")  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-picture
+                                                                    img#uploadPreview(style='width: 100px; height: 100px;'  )
+                                                                    input.form-control.file-input(id="uploadImage" type='file', name='pic2', accept='image/*' required, onchange="PreviewImage();")  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-picture
+                                                                    img#uploadPreview(style='width: 100px; height: 100px;'  )
+                                                                    input.form-control.file-input(id="uploadImage" type='file', name='pic3', accept='image/*' required, onchange="PreviewImage();")  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-picture
+                                                                    img#uploadPreview(style='width: 100px; height: 100px;'  )
+                                                                    input.form-control.file-input(id="uploadImage" type='file', name='pic4', accept='image/*' onchange="PreviewImage();")  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-picture
+                                                                    img#uploadPreview(style='width: 100px; height: 100px;'  )
+                                                                    input.form-control.file-input(id="uploadImage" type='file', name='pic5', accept='image/*' onchange="PreviewImage();")    
+                                            .col-lg-6
+                                                table.table
+                                                    tbody
+                                                        tr  
+                                                            td
+                                                                h5 Description  
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-paper
+                                                                    textarea#exampleTextarea.form-control(rows='15' placeholder='Description' name="info" required)
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-clock-time
+                                                                    textarea#exampleTextarea.form-control(rows='5' placeholder='Admission Time' name="hours")
+                    .card
+                        .row
+                            .col-lg-12
+                                .general-info
+                                        .row
+                                            .col-lg-11
+                                                table.table
+                                                    tbody
+                                                        tr
+                                                            td
+                                                                h5 Activities
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-emo-laughing
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Activity' name="act1")
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-cur-peso
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Fee' name="fee1")
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-emo-laughing
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Activity' name="act2")
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-cur-peso
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Fee' name="fee2")
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-emo-laughing
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Activity' name="act3")
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-cur-peso
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Fee' name="fee3")
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-emo-laughing
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Activity' name="act4")
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-cur-peso
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Fee' name="fee4")
+                                                                .input-group
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-emo-laughing
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Activity' name="act5")
+                                                                    span.input-group-addon
+                                                                        i.icofont.icofont-cur-peso
+                                                                    textarea#exampleTextarea.form-control(rows='1' placeholder='Fee' name="fee5")
+                                .div#buttons(style="float:right; margin: 0 10px 20px 0;")
+                                  tr
+                                    input.btn.btn-success.waves-effect.waves-light.m-r-20(type="submit" value="Save" )
+                                    input.btn.btn-info.waves-effect(type="reset" value='Clear Fields') 
+
+
+                    script.
+                        function PreviewImage() {
+                            var oFReader = new FileReader();
+                            oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+                            oFReader.onload = function (oFREvent) {
+                            document.getElementById("uploadPreview").src = oFREvent.target.result;
+                            };
+                            };

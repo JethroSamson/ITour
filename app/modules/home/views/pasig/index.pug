@@ -1,0 +1,63 @@
+extends ../../../../templates/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/posts.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/sidebar.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/cities/manila.css")
+
+    script(src="/assets/font-awesome-4.7.0/css/script.js")
+    body
+        .banner
+            img(src='/images/uploaded_images/pasig.png', position="center")
+        .card.bannertxt
+            p Pasig City is a city in the Philippines. Located along the eastern border of Metro Manila, Pasig is bordered on the west by Quezon City and Mandaluyong; to the north by Marikina; to the south byMakati, Pateros, and Taguig; and to the east by Antipolo, the municipality ofCainta and Taytay in the province of Rizal.
+            p It was 21st of January when Pasig proclaims its Cityhood. The city's name Pasig was believed to have come from the old Sanskrit word"pasega", or "sand", which refers to the tribal community beside the sandy edges of the river.
+        .feed
+            each place in places
+                figure.snip1253
+                    .image
+                        img(src='/images/city_images/'+ place.strFirstPic, alt='sample52')
+                    figcaption
+                        h3 #{place.strPlaceName}
+                        p
+                            | #{place.strTeaser}
+                            i.ion-eye
+                                p
+                                    form(method="POST"  action="/home/-/place")
+                                        .control
+                                            input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                            input.form-control.button.btn-primary.see(type="submit" value="See More")
+
+        .fixed-button
+            a.btn.btn-info(href='', aria-hidden='true') ITour:Pasig
+        .container_login
+        // Modal
+        #search.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        h2.modal-title Search Place: Pasig
+                        button.close(type='button', data-dismiss='modal') ×
+                    .modal-body
+                        #div(style="border-radius:5px;")
+                            input#searchBox.search_box.form-control.control-primary(type='text' style="height:30px;" placeholder="type any keyword")
+                            #table-wrapper(style="position:relative;")
+                                #table-scroll(style="height:400px;overflow:auto;")
+                                    table(style="font-size:15px; width:200px;")
+                                        tr
+                                        td
+                                            table#dataTable.table
+                                                tr
+                                                    th.qwe Name of the Place
+                                                    th.qwe Location
+                                                    th
+
+                                                each place in places   
+                                                    tr
+                                                        td.ty #{place.strPlaceName}
+                                                        td.ty #{place.strLoc}
+                                                        td.ty
+                                                            form(method="POST"  action="/home/-/place")
+                                                                .control
+                                                                    input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                                                    input.form-control.button.btn-inverse(type="submit" value="See More")

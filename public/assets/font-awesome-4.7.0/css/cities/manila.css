@@ -1,0 +1,61 @@
+body{
+    background-color: #E9E9E9;
+}
+.banner img{
+    width: 100%;
+    margin-left: -10px , -10px , 0 , 0;
+}
+.subtitle{
+    background-color: #2FA86C;
+    font-size: 25pt;
+    border-width: 50%;
+    color: white;
+    text-align: center;
+    font-family: Kirvy-Regular;
+
+}
+.card{
+    background-color: white;
+    height: 60%;
+    width: 73%;
+    margin-left: 150px;
+
+}
+#image-container > .img-teas{
+    position: relative;
+    width: 250px; 
+    height:275px;
+    margin-top: -5px;
+    margin-left: 10px;
+}
+.desc{
+    font-family: Trebuchet MS;
+    margin-inline-start: 20px;
+    vertical-align: top;
+    text-align: justify;
+    float: right;
+    width: 500px;
+    height: 40px;
+    margin-right:50px;
+}
+.buttons{
+    margin-top: 180px;
+    float: right;
+    width: 500px;
+    height: 40px;
+    margin-right:20px;
+    text-align: end;
+}
+.button{
+    margin-left: 3px;
+}
+.feed{
+    margin-left: 10%;
+}
+.fixed-button{
+    opacity: 0.5;
+}
+.see{
+    width: 100px;
+    float:left;
+}

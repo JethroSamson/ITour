@@ -1,0 +1,63 @@
+extends ../../../../templates/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/posts.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/sidebar.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/cities/manila.css")
+
+    script(src="/assets/font-awesome-4.7.0/css/script.js")
+    body
+        .banner
+            img(src='/images/uploaded_images/munti.png', position="center")
+        .card.bannertxt
+            p Muntinlupa City meets your travel measures. It is among Metro Manila’s Top earning component city. As the “Emerald City of the Philippines”, it fulfills. It can meet your simple-to-elegant wants for a places to see, live or invest in.
+            p It nestles two huge real estate development enclaves.
+        .feed
+            each place in places
+                figure.snip1253
+                    .image
+                        img(src='/images/city_images/'+ place.strFirstPic, alt='sample52')
+                    figcaption
+                        h3 #{place.strPlaceName}
+                        p
+                            | #{place.strTeaser}
+                            i.ion-eye
+                                p
+                                    form(method="POST"  action="/home/-/place")
+                                        .control
+                                            input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                            input.form-control.button.btn-primary.see(type="submit" value="See More")
+
+        .fixed-button
+            a.btn.btn-info(href='', aria-hidden='true') ITour:Muntinlupa
+        .container_login
+        // Modal
+        #search.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        h2.modal-title Search Place: Muntinlupa
+                        button.close(type='button', data-dismiss='modal') ×
+                    .modal-body
+                        #div(style="border-radius:5px;")
+                            input#searchBox.search_box.form-control.control-primary(type='text' style="height:30px;" placeholder="type any keyword")
+                            #table-wrapper(style="position:relative;")
+                                #table-scroll(style="height:400px;overflow:auto;")
+                                    table(style="font-size:15px; width:200px;")
+                                        tr
+                                        td
+                                            table#dataTable.table
+                                                tr
+                                                    th.qwe Name of the Place
+                                                    th.qwe Location
+                                                    th
+
+                                                each place in places   
+                                                    tr
+                                                        td.ty #{place.strPlaceName}
+                                                        td.ty #{place.strLoc}
+                                                        td.ty
+                                                            form(method="POST"  action="/home/-/place")
+                                                                .control
+                                                                    input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                                                    input.form-control.button.btn-inverse(type="submit" value="See More")

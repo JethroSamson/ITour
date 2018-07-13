@@ -1,0 +1,42 @@
+.modal-content{
+    width:400px;
+    /* background-color: #A9B3BD; */
+}
+.modal-contentsign{
+    width:500px;
+    background-color: white;
+}
+.button5 , .button6{
+    size: 35px;
+}
+
+/*modal signup*/
+
+#email{
+    width: 200;
+}
+/* .input1 , .input2{
+    width: 250;
+
+} */
+
+#name , #username , #password , #confirm {
+    width: 200;
+}
+img{
+    visibility: 90%;
+}
+.modal-title{
+    font-size: 15pt;
+    text-align: center;
+}
+.modal-footer{
+    height: 15px;
+}
+br {
+    line-height: 50%;
+ }
+ .forms{
+     margin-left: 5px;
+     margin-right: 5px;
+ }

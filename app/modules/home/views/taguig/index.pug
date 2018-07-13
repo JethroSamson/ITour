@@ -1,0 +1,69 @@
+extends ../../../../templates/navbar.pug
+    
+block content
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/posts.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/sidebar.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/cities/manila.css")
+    ul.pcoded-item.pcoded-left-item.active
+        li
+            a.active(href='/home/taguig')
+            span.pcoded-micon
+                i.icofont.icofont-bus-alt-1
+            span.pcoded-mtext Taguig
+            span.pcoded-mcaret
+    script(src="/assets/font-awesome-4.7.0/css/script.js")
+    body
+        .banner
+            img(src='/images/uploaded_images/taguig.png', position="center")
+        .card.bannertxt
+            p Taguig City is a highly urbanized city located in the south-eastern portion of Metro Manila in thePhilippines. From being a thriving fishing community along the shores of Laguna de Bay, it is now an important residential, commercial and industrial center. According to the 2015 census, Taguig is the seventh-most populous city in the Philippines, after Zamboanga City; it has a population of 804,915. 
+            p The local government of Taguig currently administers Bonifacio Global City, which is considered as one of Metro Manila's central business districts alongside Makati CBD andOrtigas Center. Its motto "Think Big, Dream Big, Taguig", inspire her people to strive hard and reach for their dreams as it was known as a Metro Manila's Probisyudad or City Province. Taguig never off beat in competing with it neighboring city, offering picture perfect sceneries and instagram-worthy shots. Taguig also has something to say with noticeable landmarks and awing structures.
+        .feed
+            each place in places
+                figure.snip1253
+                    .image
+                        img(src='/images/city_images/'+ place.strFirstPic, alt='sample52')
+                    figcaption
+                        h3 #{place.strPlaceName}
+                        p
+                            | #{place.strTeaser}
+                            i.ion-eye
+                                p
+                                    form(method="POST"  action="/home/-/place")
+                                        .control
+                                            input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                            input.form-control.button.btn-primary.see(type="submit" value="See More")
+
+        .fixed-button
+            a.btn.btn-info(href='', aria-hidden='true') ITour:Taguig
+        .container_login
+        // Modal
+        #search.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        h2.modal-title Search Place: Taguig
+                        button.close(type='button', data-dismiss='modal') ×
+                    .modal-body
+                        #div(style="border-radius:5px;")
+                            input#searchBox.search_box.form-control.control-primary(type='text' style="height:30px;" placeholder="type any keyword")
+                            #table-wrapper(style="position:relative;")
+                                #table-scroll(style="height:400px;overflow:auto;")
+                                    table(style="font-size:15px; width:200px;")
+                                        tr
+                                        td
+                                            table#dataTable.table
+                                                tr
+                                                    th.qwe Name of the Place
+                                                    th.qwe Location
+                                                    th
+
+                                                each place in places   
+                                                    tr
+                                                        td.ty #{place.strPlaceName}
+                                                        td.ty #{place.strLoc}
+                                                        td.ty
+                                                            form(method="POST"  action="/home/-/place")
+                                                                .control
+                                                                    input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                                                    input.form-control.button.btn-inverse(type="submit" value="See More")

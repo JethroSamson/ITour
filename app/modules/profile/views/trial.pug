@@ -1,0 +1,109 @@
+extends ../../../templates/navbarnocontainer.pug
+
+block content
+  link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/profile.css")
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  script(src='/assets/font-awesome/profile/assets/js/ie/html5shiv.js')
+  link(rel='stylesheet', href='/assets/font-awesome/profile/assets/css/main.css')
+  link(rel='stylesheet', href='/assets/font-awesome/profile/assets/css/ie8.css')
+  body#top
+        each user in usertab
+            // Header
+            header#header
+            .inner
+                a.image.avatar(href='#')
+                img(src='/images/profile_pictures/'+ user.strProfilePicture, alt='')
+                h1
+                | Name: 
+                strong
+                    |#{user.strFname} #{user.strLname}
+                    // Put First Name in Database
+                h1
+                    | Email: 
+                    strong
+                    |#{user.strEmail}
+                    // Put Email in Database
+                    br
+                    br
+                    br
+                    br
+                    ul
+                    a(href='/profile/-/edit', c;ass='button') Edit Profile
+            // Main
+            #main
+            // One
+            section#one
+                header.major
+                h2
+                    | About Me
+                    // Description
+                p Short Description about Users
+                ul.actions
+                li
+                    a.button(href='#') Learn More
+            // Two
+            section#two
+                .row
+                article.6u.work-item(class='12u$(xsmall)')
+                    a.image.fit.thumb(href='images/fulls/01.jpg')
+                    img(src='images/thumbs/01.jpg', alt='')
+                    h3 Magna sed consequat tempus
+                    p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+                article.work-item(class='6u$ 12u$(xsmall)')
+                    a.image.fit.thumb(href='images/fulls/02.jpg')
+                    img(src='images/thumbs/02.jpg', alt='')
+                    h3 Ultricies lacinia interdum
+                    p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+                article.6u.work-item(class='12u$(xsmall)')
+                    a.image.fit.thumb(href='images/fulls/03.jpg')
+                    img(src='images/thumbs/03.jpg', alt='')
+                    h3 Tortor metus commodo
+                    p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+                article.work-item(class='6u$ 12u$(xsmall)')
+                    a.image.fit.thumb(href='images/fulls/04.jpg')
+                    img(src='images/thumbs/04.jpg', alt='')
+                    h3 Quam neque phasellus
+                    p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+                article.6u.work-item(class='12u$(xsmall)')
+                    a.image.fit.thumb(href='images/fulls/05.jpg')
+                    img(src='images/thumbs/05.jpg', alt='')
+                    h3 Nunc enim commodo aliquet
+                    p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+                article.work-item(class='6u$ 12u$(xsmall)')
+                    a.image.fit.thumb(href='images/fulls/06.jpg')
+                    img(src='images/thumbs/06.jpg', alt='')
+                    h3 Risus ornare lacinia
+                    p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+                // Footer
+                footer#footer
+                    .inner
+                    ul.icons
+                        li
+                        a.icon.fa-twitter(href='#')
+                            span.label Twitter
+                        li
+                        a.icon.fa-github(href='#')
+                            span.label Github
+                        li
+                        a.icon.fa-dribbble(href='#')
+                            span.label Dribbble
+                        li
+                        a.icon.fa-envelope-o(href='#')
+                            span.label Email
+                    ul.copyright
+                        li © Untitled
+                        li
+                        | Design: 
+                        a(href='http://html5up.net') HTML5 UP
+                // Scripts
+                script(src='/assets/font-awesome/profile/assets/js/jquery.min.js')
+                script(src='/assets/font-awesome/profile/assets/js/jquery.poptrox.min.js')
+                script(src='/assets/font-awesome/profile/assets/js/skel.min.js')
+                script(src='/assets/font-awesome/profile/assets/js/util.js')
+                //if lte IE 8
+                    script(src='/assets/font-awesome/profile/assets/js/ie/respond.min.js')
+                script(src='/assets/font-awesome/profile/assets/js/main.js')

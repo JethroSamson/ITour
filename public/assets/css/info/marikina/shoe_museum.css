@@ -1,0 +1,24 @@
+.main_wrapper{
+    width: 80%;
+    margin: auto;
+}
+body{
+    font-family: Trebuchet MS;
+}
+hr{
+    background-color: blue;
+    size: 100;
+
+    
+}
+.gen{
+    background-color: #295680;
+    padding:5px;
+}
+.text{
+    color: white;
+    font-size: 20px;
+}
+.qw{
+    margin-left: 20px;
+}

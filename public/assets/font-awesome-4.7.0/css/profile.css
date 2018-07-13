@@ -1,0 +1,45 @@
+#info{
+	border: 1px solid skyblue;
+	width: 95%;
+	height:50%;
+	background-color: white;
+	margin-top: -30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img{
+		border-radius: 50%;
+		margin-left: 5pt;
+		border: 1.5px solid skyblue;
+ 
+		border-top-left-radius: 50% 50%;
+		border-top-right-radius: 50% 50%;
+		border-bottom-right-radius: 50% 50%;
+		border-bottom-left-radius: 50% 50%;
+
+}
+#buttons{
+	float: left;
+	margin-left:35%;
+	margin-top:10px;
+	font-family: Arial;
+}
+.text {
+	text-align: center;
+	font-size: 15pt;
+	font-weight: 500;
+	margin: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a.button{
+	font-family: Arial;
+	font-size: 11pt;
+}
+.buttonp{
+	font-family: Arial;
+	font-size: 11pt;
+	
+}
+.buttonp :hover{
+	text-transform: none;
+
+}

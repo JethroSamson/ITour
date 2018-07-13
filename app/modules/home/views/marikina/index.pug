@@ -1,0 +1,85 @@
+extends ../../../../templates/navbar.pug
+
+block content
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/posts.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/sidebar.css")
+    link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/cities/manila.css")
+
+    script(src="/assets/font-awesome-4.7.0/css/script.js")
+    body
+        .banner
+            img(src='/images/uploaded_images/marikina.png', position="center")
+        .card.bannertxt
+            p Marikina’s history provides an interesting glimpse into the events that helped shape its evolution.The Augustinians were the first to arrive at the Marikina Valley in 1500, at the spot known as “Chorillo” in Barangka. Next came the Jesuits in 1630, in a place now called Jesus dela Peña (Jesus of the Rocks). Here, the Jesuits established a mission and built a chapel. In 1687, this pueblo became a parish known as Mariquina. In1901, with the coming of the Americans, its name officially became Marikina. 
+            p In 1887, Marikina’s shoemaking industry began through the pioneering efforts of Don Laureano “Kapitan Moy” Guevarra, by the turn of the 20thcentury, Marikina emerged as a town of shoemakers. Honed by years in shoe manufacturing, the natives quickly developed a work ethic that had prepared them for the arrival of heavy industries in the 1950s. With the proliferation of industrial plants came waves of workers who had chosen to stay, rapidly increasing the population. In no time, shoe manufacturing flourished into a multi-million-peso industry, earning for Marikina the moniker, “Shoe Capital of the Philippines.”
+        .feed
+            each place in places
+                figure.snip1253
+                    .image
+                        img(src='/images/city_images/'+ place.strFirstPic, alt='sample52')
+                    figcaption
+                        h3 #{place.strPlaceName}
+                        p
+                            | #{place.strTeaser}
+                            i.ion-eye
+                                p
+                                    form(method="POST"  action="/home/-/place")
+                                        .control
+                                            input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                            input.form-control.button.btn-primary.see(type="submit" value="See More")
+
+        .fixed-button
+            a.btn.btn-info(href='', aria-hidden='true') ITour:Marikina
+        .container_login
+        // Modal
+        #search.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                    .modal-header
+                        h2.modal-title Search Place: Marikina
+                        button.close(type='button', data-dismiss='modal') ×
+                    .modal-body
+                        #div(style="border-radius:5px;")
+                            input#searchBox.search_box.form-control.control-primary(type='text' style="height:30px;" placeholder="type any keyword")
+                            #table-wrapper(style="position:relative;")
+                                #table-scroll(style="height:400px;overflow:auto;")
+                                    table(style="font-size:15px; width:200px;")
+                                        tr
+                                        td
+                                            table#dataTable.table
+                                                tr
+                                                    th.qwe Name of the Place
+                                                    th.qwe Location
+                                                    th
+
+                                                each place in places   
+                                                    tr
+                                                        td.ty #{place.strPlaceName}
+                                                        td.ty #{place.strLoc}
+                                                        td.ty
+                                                            form(method="POST"  action="/home/-/place")
+                                                                .control
+                                                                    input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                                                    input.form-control.button.btn-inverse(type="submit" value="See More")
+            //- .feed
+            //-     br
+            //-     .card.card-outline-secondary
+            //-         h3.card-header
+            //-         h3.subtitle 
+            //-         .card-body
+            //-             //- a(href='/place/'+ place.strPlaceName)
+            //-             //- input(type='text' name='place' value= strPlaceName)
+            //-             h4.card-title #{place.strPlaceName}
+            //-             div.card-text
+            //-                 p.desc #{place.strTeaser}
+            //-                 p.buttons
+            //-                 form(method="POST" action="/home")
+            //-                     .control
+            //-                         input#username(type='text', value= place.intPlaceID name="placeid" hidden)
+            //-                     .control
+            //-                             input.button(type="submit" value="See More")
+            //-                     a.button.is-info(class="button", href="")
+            //-                         i.fa.fa-map-marker(aria-hidden='true')
+            //-                         | &nbsp Route
+            //-             div#image-container
+            //-                 img.img-teas(src='/assets/images/Cities/manila/manila0.jpg', position='left')

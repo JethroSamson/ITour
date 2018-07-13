@@ -1,0 +1,85 @@
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+width: 100%;
+height:550px;
+}
+.container{
+  position:top center;
+  width: 100%;
+}
+.body{
+  align-content: center;
+  width: 100%;
+}
+.carousel-caption{
+    font-size: 50px;
+}
+p, h3 {
+  font-size: 35px;  
+}
+
+#myCarousel{
+  width: 100%;
+  height: 574px;;
+}
+.carousel-inner{
+  width: 100%;
+  height: 550px;
+}
+#banner_description
+    {
+    position: absolute;
+    bottom: 0;
+    border-radius: 0px 0px 5px 5px;
+    width: 100%;
+    height: 50px;
+    padding-top: 15px;
+    padding-left: 4px;
+    background-color: rgb(24,24,24); 
+    background-color: rgba(24,24,24,0.8); /* New browsers will read this */
+    color: white;
+    font-size: 0.8em;
+    float:right;
+    }
+
+
+ul
+    {
+        list-style-type: none;
+        text-align: end
+        
+    }
+a
+    {
+        font-size: 25px;
+        color: white;
+        padding-bottom: 3px;
+        text-decoration: none;
+        margin-right: 10px;
+
+    }
+
+a:hover
+    {
+        color: #91D451;
+        border-bottom: 3px solid red;
+        text-decoration: none;
+    }
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}

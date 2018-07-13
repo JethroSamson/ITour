@@ -1,0 +1,130 @@
+extends ../../../templates/admin.pug
+
+block content
+  link(rel='stylesheet', href='/assets/css/info/admin.css')
+  link(rel="stylesheet" href="/assets/MDBFree/scss/_forms.scss")
+  //- each place in placetab
+  //-   p #{place.CNT}
+  br
+  each place in places
+    form(method="POST" action="/admin/-/editplace" enctype='multipart/form-data')
+            .card.card1
+                input(type='text', maxlength="100" name="place", value=place.intPlaceID, hidden)
+                .field.city
+                    .control
+                        .select.is-danger
+                            select(name="city")
+                                option(value='') -- Choose City --
+                                option(value='Manila') Manila
+                                option(value='Quezon City') Quezon City
+                                option(value='Pasig') Pasig
+                                option(value='Marikina') Marikina
+                                option(value='San Juan') San Juan
+                                option(value='Mandaluyong') Mandaluyong
+                                option(value='Valenzuela') Valenzuela
+                                option(value='Navotas') Navotas
+                                option(value='Malabon') Malabon
+                                option(value='Taguig') Taguig
+                                option(value='Pateros') Pateros
+                                option(value='Pasay') Pasay
+                                option(value='Parañaque') Parañaque
+                                option(value='Muntinlupa') Muntinlupa
+                                option(value='Makati') Makati
+                                option(value='Las Piñas') Las Piñas 
+                .row
+                    .col-md-4 
+                        div(style='width: 17%; float:left;')
+                            label PICTURE 1
+                            br
+                            input.file-input(type='file', name='pic1', accept='image/*' required )
+                    .col-md-4
+                        div(style='width: 17%; float:left;') 
+                            label PICTURE 2
+                            br
+                            input.file-input(type='file', name='pic2', accept='image/*' required )             
+                    .col-md-4 
+                        div(style='width: 17%; float:left; ')
+                            label PICTURE 3
+                            br
+                            input.file-input(type='file', name='pic3', accept='image/*' required )
+                    .col-md-4 
+                        div(style='width: 17%; float:left; ')
+                            label PICTURE 4
+                            br
+                            input.file-input(type='file', name='pic4', accept='image/*' ) 
+                    .col-md-4 
+                        div(style='width:17%; float:left; ')
+                            label PICTURE 5
+                            br
+                            input.file-input(type='file', name='pic5', accept='image/*' ) 
+                br
+                hr(style='border: 0.5px solid #526C7B; width:100%;')
+            .card.cardname
+                .form-group
+                    label(for='formGroupExampleInput') Name Of the Place
+                    input#formGroupExampleInput.form-control(type='text', maxlength="100" name="placename", required  value=place.strPlaceName)
+            br
+            .card.cardbg
+                .form-group
+                    label Short Background
+                    textarea#form8.md-textarea(type='text', max="250" min="0" name="brief", required) #{place.strTeaser}
+            br
+            .card.cardinfo
+                .form-group
+                    label Information
+                    textarea#form8.md-textarea(type='text', name="info", required ) #{place.strInfo}
+            br
+            .card.cardloc
+                .form-group
+                    label Location
+                    textarea#form8.md-textarea(type='text', name="loc") #{place.strLoc}
+            br
+            .card.cardhour
+                .form-group
+                    label Admission Hour
+                    textarea#form8.md-textarea(type='text', name="hours",  required ) #{place.strAdmission}
+            br
+            .card.cardlink
+                .form-group
+                    label Google Map Link
+                    textarea#form8.md-textarea(type='text', name="link",  required ) #{place.strGmap}
+            br
+            .card.cardact
+                table.table.table-sm.act
+                    thead
+                    tr
+                        th.title1 Activities
+                        th.title1 Fee
+                    tbody
+                    tr
+                        td 
+                            textarea#form8.md-textarea(type='text', maxlength="100" name="act1", placeholder="Activity 1")
+                        td 
+                            textarea#form8.md-textarea(type='text', maxlength="50" name="fee1", placeholder="fee")
+                    tr
+                        td
+                            textarea#form8.md-textarea(type='text', maxlength="100" name="act2", placeholder="Activity 2")
+                        td 
+                            textarea#form8.md-textarea(type='text', maxlength="50" name="fee2", placeholder="fee")
+                    tr
+                        td
+                            textarea#form8.md-textarea(type='text', maxlength="100" name="act3", placeholder="Activity 3")
+                        td 
+                            textarea#form8.md-textarea(type='text', maxlength="50" name="fee3", placeholder="fee")
+                    tr
+                        td
+                            textarea#form8.md-textarea(type='text', maxlength="100" name="act4", placeholder="Activity 4")
+                        td 
+                            textarea#form8.md-textarea(type='text', maxlength="50" name="fee4", placeholder="fee")
+                    tr
+                        td
+                            textarea#form8.md-textarea(type='text', maxlength="100" name="act5", placeholder="Activity 5")
+                        td 
+                            textarea#form8.md-textarea(type='text', maxlength="50" name="fee5", placeholder="fee")
+            .field.is-grouped.submit
+                .control
+                    input.btn.btn-primary(type="submit" value="Edit")
+                .control
+                    input.btn.btn-primary(type='reset', value='Cancel')
+              
+

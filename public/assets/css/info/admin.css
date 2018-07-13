@@ -1,0 +1,92 @@
+body{
+    font-family: Trebuchet MS;
+    background-color: #E9EBEE;
+}
+.title{
+    margin-left: 500px;
+    font-family: Trebuchet MS;
+}
+
+.form-group{
+    width: 70%;
+    margin-left: 10px;
+}
+.title1{
+    font-family: Trebuchet MS;
+    font-size: 25px;
+}
+.submit{
+    float: left;
+    margin-left: 1%;
+    margin-top:-40px;
+}
+.signsucc{
+    color: black;
+    background-color: green;
+    padding-bottom: 30px;
+    margin-bottom: -1px;
+}
+.taken{
+    color: black;
+    background-color: #47A8F5;
+    padding-bottom: 30px;
+    margin-bottom: -1;
+
+}
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    float: left;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+.card1{
+    background-color: #47A8F5;
+    width: 50%;
+    margin-left: 10px;
+
+}
+.city{
+    margin-left: 33%;
+}
+.cardlink{
+    float: right;
+    background-color: #47A8F5;
+    width: 45%;
+    margin-top: -830px;
+    margin-right: 10px;
+}
+.cardact{
+    float: right;
+    width: 45%;
+    margin-top: -700px;
+    margin-right: 10px;
+}
+.act{
+    height: 100px;
+}
+.cardname{
+    background-color: #47A8F5;
+    width: 50%;
+    height: auto;
+    margin-left: 10px;
+}
+.cardbg{
+    background-color: #47A8F5;
+    width: 50%;
+    height: auto;
+    margin-left: 10px;
+}
+.cardinfo , .cardloc , .cardhour{     
+    background-color: #47A8F5;
+    width: 50%;
+    height: auto;
+    margin-left: 10px;
+}
+.count{
+    height: 40px;
+    width: 50%;
+}

@@ -1,0 +1,39 @@
+extends ../../../templates/admin.pug
+
+block content
+  link(rel='stylesheet', type='text/css', href='/assets/css/info/marikina/tbladmin.css')
+  script(src='/assets/css/info/marikina/tablesearch.js')
+  link(rel='stylesheet', href='/assets/css/info/admin.css')
+  H1 success
+  #div(style="background-color:#E9EBEE; border-radius:5px;")
+    input#searchBox.search_box(type='text' style="font-size:15px; font-family: Trebuchet MS;  margin-left:20px; margin-right:20px;")
+    span.reset_hint
+        i Search
+        #table-wrapper(style="position:relative;")
+            #table-scroll(style="height:75%;overflow:auto; margin-left:20px; margin-right:20px;")
+                table(style="font-size:15px;")
+                    tr
+                    td
+                        table#dataTable.table(border='1')
+                            tr
+                                th.qwe Place
+                                th.qwe Adress
+                                th
+                                th
+                            each place in places   
+                                tr
+                                    td.ty #{place.strPlaceName}
+                                    td.ty #{place.strLoc}
+                                    td.ty
+                                        form(method="POST"  action="/admin/-/view")
+                                            .control
+                                                input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                                input.btn.btn-primary(type="submit" value="View")
+                                    td.ty
+                                        form(method="POST"  action="/admin/-/edit")
+                                            .control
+                                                input(type='text', value= place.intPlaceID name="placeid" hidden)
+                                                input.btn.btn-primary(type="submit" value="edit")
+        //search table
+        script(type='text/javascript').
+            new TableSearch('searchBox', 'dataTable', { noResultsText: 'Nothing found! Try again' }).init();

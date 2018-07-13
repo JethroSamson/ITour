@@ -1,0 +1,68 @@
+/* The alert message box */
+.incorrect {
+    color: black;
+    background-color: #FFAA2C;
+    padding-bottom: 30px;
+    margin-bottom: -1px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    float: left;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+.inavlid{
+    color: black;
+    background-color: orange;
+    padding-bottom: 30px;
+    margin-bottom: -1px;
+}
+.signsucc{
+    color: black;
+    background-color: green;
+    padding-bottom: 30px;
+    margin-bottom: -1px;
+}
+.noroute{
+    color: black;
+    background-color: red;
+    padding-bottom: 30px;
+    margin-bottom: -1;
+
+}
+.taken{
+    color: black;
+    background-color: #47A8F5;
+    padding-bottom: 30px;
+    margin-bottom: -1;
+
+}
+.xmatch{
+    color: black;
+    background-color: #47A8F5;
+    padding-bottom: 30px;
+    margin-bottom: -1;
+}
+.incorrectedit {
+    color: black;
+    background-color: #FFAA2C;
+    padding-bottom: 30px;
+    margin-bottom: -1px;
+}
+.notmatchedit{
+    color: black;
+    background-color: #47A8F5;
+    padding-bottom: 30px;
+    margin-bottom: -1;
+}

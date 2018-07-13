@@ -1,0 +1,278 @@
+extends ../../../templates/navbar.pug
+block content
+    link(rel='stylesheet', href='/assets/css/info/marikina/shoe_museum.css')
+    link(rel='stylesheet', href='/assets/css/info/marikina/place.css')
+    // light-box css
+    link(rel='stylesheet', type='text/css', href='/assets1/plugins/ekko-lightbox/dist/ekko-lightbox.css')
+    link(rel='stylesheet', type='text/css', href='/assets1/plugins/lightbox2/dist/css/lightbox.css')
+    // Style.css
+    link(rel='stylesheet', type='text/css', href='/assets1/css/style.css')
+    link(rel='stylesheet', type='text/css', href='/assets1/css/linearicons.css')
+    link(rel='stylesheet', type='text/css', href='/assets1/css/simple-line-icons.css')
+    link(rel='stylesheet', type='text/css', href='/assets1/css/ionicons.css')
+    link(rel='stylesheet', type='text/css', href='/assets1/css/jquery.mCustomScrollbar.css')
+
+
+    body
+        .banner
+            img(src='/images/uploaded_images/mainbanner.png', position="center")
+        br
+        each place in places
+            h2 #{place.strPlaceName} 
+            // Nav tabs
+            ul.nav.nav-tabs.md-tabs(role='tablist')
+                li.nav-item
+                    a.nav-link.active(data-toggle='tab', href='#pictures', role='tab')
+                        i.icofont.icofont-ui-camera
+                        | &nbsp Pictures
+                    .slide
+                li.nav-item
+                    if place.strHistory == NULL
+                        a.nav-link.disabled(data-toggle='tab', role='tab')
+                            i.ti-file
+                            | &nbsp History
+                        .slide
+                    else
+                        a.nav-link(data-toggle='tab', href='#history', role='tab')
+                            i.ti-file
+                            | &nbsp History
+                        .slide                       
+                li.nav-item
+                    a.nav-link(data-toggle='tab', href='#description', role='tab')
+                        i.icofont.icofont-ui-message
+                        | &nbsp Description
+                    .slide
+                li.nav-item
+                    a.nav-link(data-toggle='tab', href='#admission', role='tab')
+                        i.icofont.icofont-time
+                        | &nbsp Admission Time
+                    .slide
+                li.nav-item
+                    if(place.strAct1 || place.strAct2 || place.strAct3 || place.strAct4 || place.strAct5) == ""
+                        a.nav-link.disabled(data-toggle='tab', role='tab' )
+                            i.icofont.icofont-emo-laughing
+                            | &nbsp Activities
+                        .slide
+                    else
+                        a.nav-link(data-toggle='tab', href='#activities', role='tab')
+                            i.icofont.icofont-emo-laughing
+                            | &nbsp Activities                    
+                        .slide
+                li.nav-item
+                    a.nav-link(data-toggle='tab', href='#location', role='tab')
+                        i.icofont.icofont-location-pin
+                        | &nbsp Location
+                    .slide
+        each place in places
+            .tab-content.card-block
+                    #pictures.tab-pane(role='tabpanel')
+                        .col-md-12
+                            .card
+                                .card-header
+                                    h5 IMAGES
+                                .card-block
+                                    .row
+                                        .col-md-5
+                                            a(href='/images/city_images/'+ place.strFirstPic, data-toggle='lightbox', data-lightbox="roadtrip" width="300px" height="200px")
+                                                img.img-fluid#image(src='/images/city_images/'+ place.strFirstPic, alt='' width="500px" height="600px")
+                                        .col-md-5
+                                            a(href='/images/city_images/'+ place.strSecondPic, data-toggle='lightbox', data-lightbox="roadtrip" width="300px" height="200px")
+                                                img.img-fluid#image(src='/images/city_images/'+ place.strSecondPic, alt='' width="500px" height="600px")
+                                        .col-md-5
+                                            a(href='/images/city_images/'+ place.strThirdPic, data-toggle='lightbox', data-lightbox="roadtrip" width="300px" height="200px")
+                                                img.img-fluid#image(src='/images/city_images/'+ place.strThirdPic, alt='' width="500px" height="600px")
+                                        if place.strFourthPic == 'blank.jpg' 
+                                        else
+                                            .col-md-5
+                                                a(href='/images/city_images/'+ place.strFourthPic, data-toggle='lightbox', data-lightbox="roadtrip" width="300px" height="200px")
+                                                    img.img-fluid#image(src='/images/city_images/'+ place.strFourthPic, alt='' width="500px" height="600px")
+                                        if place.strFifthPic == 'blank.jpg'
+                                        else        
+                                            .col-md-5
+                                                a(href='/images/city_images/'+ place.strFifthPic, data-toggle='lightbox', data-lightbox="roadtrip" width="300px" height="200px")
+                                                    img.img-fluid#image(src='/images/city_images/'+ place.strFifthPic, alt='' width="500px" height="600px")
+
+                    #teaser.tab-pane(role='tabpanel')
+                        p.m-o
+                            .card
+                                .card-block
+                                    | #{place.strTeaser}
+
+                    #activities.tab-pane(role='tabpanel')
+                        p.m-o
+                            .row
+                                .col-md-6
+                                    if place.strAct1 == ""
+                                    else
+                                        .card
+                                            .card-block
+                                                | #{place.strAct1}
+                                                .div(style="float:right")
+                                                    | #{place.fltAct1}
+
+                                .col-md-6
+                                    if place.strAct2 == ""
+                                    else
+                                        .card
+                                            .card-block
+                                                | #{place.strAct2}
+                                                .div(style="float:right")
+                                                    | #{place.fltAct2}
+                                .col-md-6
+                                    if place.strAct3 == ""
+                                    else
+                                        .card
+                                            .card-block
+                                                | #{place.strAct3}
+                                                .div(style="float:right")
+                                                    | #{place.fltAct3}
+                            .row
+                                .col-md-6
+                                    if place.strAct4 == ""
+                                    else
+                                        .card
+                                            .card-block
+                                                | #{place.strAct4}
+                                                .div(style="float:right")
+                                                    | #{place.fltAct4}
+                                .col-md-6
+                                    if place.strAct5 == ""
+                                    else
+                                        .card
+                                            .card-block
+                                                | #{place.strAct5}
+                                                .div(style="float:right")
+                                                    | #{place.fltAct5}
+                    #description.tab-pane(role='tabpanel')
+                        p.m-o
+                            .card
+                                .card-block
+                                    | #{place.strInfo}
+                    #admission.tab-pane(role='tabpanel')
+                        p.m-o
+                            .card
+                                .card-block
+                                    | #{place.strAdmission}
+                    #history.tab-pane(role='tabpanel')
+                        p.m-o
+                            .card
+                                .card-block
+                                    | #{place.strHistory}
+                    #location.tab-pane(role='tabpanel')
+                        p.m-o
+                            .card
+                                .card-block
+                                    | #{place.strLoc} 
+                                    a.btn.btn-info(class="button", href= " " +place.strGmap target="_blank" style="float:right;" ) View on Google Map                             
+
+
+
+
+
+        //- br
+        //- each place in places
+        //-     #myCarousel.carousel.slide(data-ride='carousel' data-interval="2000")
+        //-         ol.carousel-indicators
+        //-             li.active(data-target='#myCarousel', data-slide-to='0')
+        //-             li(data-target='#myCarousel', data-slide-to='1')
+        //-             li(data-target='#myCarousel', data-slide-to='2')
+        //-             li(data-target='#myCarousel', data-slide-to='3')  
+        //-             li(data-target='#myCarousel', data-slide-to='4')  
+        //-         .carousel-inner(role='listbox')          
+        //-             .item.active       
+        //-                 img.bg(src='/images/city_images/'+ place.strFirstPic, position="center")
+        //-                 .carousel-caption
+        //-                     tr
+        //-                         td.acts #{place.strAct1} 
+        //-                         td.fees #{place.fltAct1} 
+        //-             .item
+        //-                 img.bg(src='/images/city_images/'+ place.strSecondPic, position='center')
+        //-                 .carousel-caption
+        //-                     tr
+        //-                         td.acts #{place.strAct2} 
+        //-                         td.fees #{place.fltAct2} 
+        //-             .item
+        //-                 img.bg(src='/images/city_images/'+ place.strThirdPic, position='center')
+        //-                 .carousel-caption
+        //-                     tr
+        //-                         td.acts #{place.strAct3} 
+        //-                         td.fees #{place.fltAct3} 
+
+        //-             .item
+        //-                 img.bg(src='/images/city_images/'+ place.strFourthPic, position="center")
+        //-                 .carousel-caption
+        //-                     tr
+        //-                         td.acts #{place.strAct4} 
+        //-                         td.fees #{place.fltAct4}
+        //-             .item
+        //-                 img.bg(src='/images/city_images/'+ place.strFifthPic, position='center')
+        //-                 .carousel-caption 
+        //-                     tr
+        //-                         td.acts #{place.strAct5} 
+        //-                         td.fees #{place.fltAct5}
+        //-         a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+        //-             span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+        //-             span.sr-only Previous
+        //-         a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+        //-             span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+        //-             span.sr-only Next
+        //-     .card.desc
+        //-         h3.name #{place.strPlaceName} 
+        //-                 a.btn.btn-secondary.btn-fw(class="button", href= " " +place.strGmap target="_blank" ) View on Google Map 
+        //-         p.info
+        //-             | #{place.strInfo}
+        //-         br
+        //-         .card.info3
+        //-             | #{place.strAdmission}
+        //-             br
+        //-             | #{place.strLoc}
+            //- br
+            //- table.table.tbll
+            //-     thead.tablehead
+            //-         tr.text-white
+            //-             th.title4 Activities
+            //-             th.title4 Fees
+            //-     tbody
+            //-         tr
+            //-             td.acts #{place.strAct1} 
+            //-             td.fees #{place.fltAct1} 
+            //-         tr
+            //-             td.acts #{place.strAct2} 
+            //-             td.fees #{place.fltAct2} 
+            //-         tr
+            //-             td.acts #{place.strAct3} 
+            //-             td.fees #{place.fltAct3} 
+            //-         tr
+            //-             td.acts #{place.strAct4} 
+            //-             td.fees #{place.fltAct4} 
+            //-         tr
+            //-             td.acts #{place.strAct5} 
+            //-             td.fees #{place.fltAct5} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //- br
+            //- form( method="POST" action="/home/-/comments")
+            //-     .control-group
+            //-         label.control-label(for='comment') Write your comment
+            //-             .controls
+            //-                 input#username(type='text', name="comment")
+            //-                 input.btn.btn-secondary(type="submit" value="OK")
+            //- br
+            //- each comment in comments
+            //-     p 
+            //-         | #{comment.stromments}
+            //-         | #{comment.strUsername}

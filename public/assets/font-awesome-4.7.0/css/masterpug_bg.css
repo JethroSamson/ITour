@@ -1,0 +1,44 @@
+section{
+    background-color: white;
+}
+.navbar{
+    background-color: #526C7B;
+    /* background: linear-gradient(rgb(47, 168, 108), white); */
+
+}
+a.navbar-item{
+    size: 20px;
+    font-weight: 400;
+    color:white;
+}
+a.navbar-item :hover{
+    border-color: #49bf9d;
+    color: #49bf9d !important;
+}
+a.navbar-item :active {
+    background-color: rgba(73, 191, 157, 0.1);
+    border-color: #49bf9d;
+    color: #49bf9d !important;
+}
+.txt{
+    size: 21px;
+    font-weight: 400;
+    color:white;
+
+}
+.item3{
+    margin-left: 20px;
+}
+.item4{
+    margin-left: 250px;
+}
+a.navbar-item.item4{
+    size: 20px;
+    font-weight: 400;
+    color:white;
+}
+a.navbar-item.item1{
+    size: 21px;
+    font-weight: 400;
+    color:white;
+}

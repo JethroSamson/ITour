@@ -1,0 +1,143 @@
+extends ../../../templates/navbarnocontainer.pug
+
+block content
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  script(src='/assets/font-awesome-4.7.0/css/assets2/js/ie/html5shiv.js')
+  link(rel='stylesheet', href='/assets/font-awesome-4.7.0/css/assets2/css/main.css')
+  link(rel='stylesheet', href='/assets/font-awesome-4.7.0/css/assets2/css/ie8.css')
+  body#top
+        each user in usertab
+            // Header
+            header#header
+              .inner
+                  a.image.avatar(href='#')
+                  img(src='/images/profile_pictures/'+ user.strProfilePicture, alt='')
+                  br
+                  h1 Update Your Profile
+                  br
+                  h1
+                  form(method="POST" action="/profile/-/edit" enctype='multipart/form-data')
+                    .control-group
+                        label.control-label(for='username') Username
+                        .controls
+                            input#username(type='text', value=user.strUsername name="user" required, readonly)
+                    .control-group
+                        label.control-label(for='username') First Name
+                        .controls
+                            input#username(type='text', value=user.strFname name="fname" required)
+                    .control-group
+                        label.control-label(for='username') Last Name
+                        .controls
+                            input#username(type='text', value=user.strLname name="lname" required)
+                    .control-group
+                        label.control-label(for='username') Email
+                        .controls
+                            input#username(type='email', value=user.strEmail name="email" required)
+                    .control-group
+                        label.control-label(for='username') Short Description of you
+                        .controls
+                            input#username(type='text', value=user.strInfo name="info" maxlength='60')
+                    .field
+                        .control
+                            label.label8 Profile Picture
+                            br
+                            input.file-input(type='file', name='profilepic', accept='image/*')
+                    hr(style='border: 0.5px solid #990000')
+                    .control-group
+                        label.control-label(for='username') Old Password
+                        .controls
+                            input#username(type='password', name="oldpass" required)
+                    .control-group
+                        label.control-label(for='username') New Password
+                        .controls
+                            input#username(type='password', name="newpass" required)
+                    .control-group
+                        label.control-label(for='username') Confirm Password
+                        .controls
+                            input#username(type='password', name="confirm" required)
+                    br
+                    .control
+                            input.button(type="submit" value="Save")
+                    br
+                    .control
+                            a.button(class="button", href="/profile") Back                   
+            #main
+              // One
+              section#one
+                  header.major
+                    h2
+                      | About Me
+                      // Description
+                  p #{user.strInfo}
+            //-   // Two
+            //-   section#two
+            //-       .row
+            //-         article.cc.work-item(class='12u$(xsmall)')
+            //-             a.image.fit.thumb(href='images/fulls/01.jpg')
+            //-               img(src='/assets/font-awesome-4.7.0/css/images2/thumbs/01.jpg', alt='')
+            //-             h3 Image
+            //-             p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+            //-         article.work-item(class='cc$ 12u$(xsmall)')
+            //-             a.image.fit.thumb(href='/assets/font-awesome-4.7.0/css/images2/fulls/02.jpg')
+            //-               img(src='/assets/font-awesome-4.7.0/css/images2/thumbs/02.jpg', alt='')
+            //-             h3 Image
+            //-             p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+            //-         article.cc.work-item(class='12u$(xsmall)')
+            //-             a.image.fit.thumb(href='/assets/font-awesome-4.7.0/css/images2/fulls/03.jpg')
+            //-               img(src='/assets/font-awesome-4.7.0/css/images2/thumbs/03.jpg', alt='')
+            //-             h3 Image
+            //-             p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+            //-         article.work-item(class='cc$ 12u$(xsmall)')
+            //-             a.image.fit.thumb(href='/assets/font-awesome-4.7.0/css/images2/fulls/04.jpg')
+            //-               img(src='/assets/font-awesome-4.7.0/css/images2/thumbs/04.jpg', alt='')
+            //-             h3 Image
+            //-             p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+            //-         article.cc.work-item(class='12u$(xsmall)')
+            //-             a.image.fit.thumb(href='images/fulls/05.jpg')
+            //-               img(src='/assets/font-awesome-4.7.0/css/images2/thumbs/05.jpg', alt='')
+            //-             h3 Image
+            //-             p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+            //-         article.work-item(class='cc$ 12u$(xsmall)')
+            //-             a.image.fit.thumb(href='images/fulls/06.jpg')
+            //-               img(src='/assets/font-awesome-4.7.0/css/images2/thumbs/06.jpg', alt='')
+            //-             h3 Image
+            //-             p Lorem ipsum dolor sit amet nisl sed nullam feugiat.
+            //-         // Footer
+            //-         footer#footer
+            //-             .inner
+            //-               ul.icons
+            //-                   li
+            //-                   a.icon.fa-twitter(href='#')
+            //-                       span.label Twitter
+            //-                   li
+            //-                   a.icon.fa-github(href='#')
+            //-                       span.label Github
+            //-                   li
+            //-                   a.icon.fa-dribbble(href='#')
+            //-                       span.label Dribbble
+            //-                   li
+            //-                   a.icon.fa-envelope-o(href='#')
+            //-                       span.label Email
+            //-               ul.copyright
+            //-                   li © Untitled
+            //-                   li
+            //-                   | Design: 
+            //-                   a(href='http://html5up.net') HTML5 UP
+                    // Scripts
+                    script(src='/assets2/font-awesome-4.7.0/css/assets/js/jquery.min.js')
+                    script(src='/assets2/font-awesome-4.7.0/css/assets/js/jquery.poptrox.min.js')
+                    script(src='/assets2/font-awesome-4.7.0/css/assets/js/skel.min.js')
+                    script(src='/assets2/font-awesome-4.7.0/css/assets/js/util.js')
+                    //if lte IE 8
+                        script(src='/assets2/font-awesome-4.7.0/css/assets/js/ie/respond.min.js')
+                    script(src='/assets2/font-awesome-4.7.0/css/assets/js/main.js')
+                  .alert.incorrectedit
+                    span.closebtn(onclick="this.parentElement.style.display='none';")
+                      |Password Incorrect
+                  .alert.notmatchedit
+                     span.closebtn(onclick="this.parentElement.style.display='none';")
+                        |Password didnt Match

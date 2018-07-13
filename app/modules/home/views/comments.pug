@@ -1,0 +1,51 @@
+extends ../../../templates/navbarnocontainer.pug
+
+block content
+    link(rel='stylesheet', href='/assets/css/info/marikina/shoe_museum.css')
+    link(rel='stylesheet', href='/assets/css/info/marikina/place.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    body
+        .banner
+            img.banner(src='/images/uploaded_images/mainbanner.png', position="center")
+        br
+        each place in places
+            #myCarousel.carousel.slide(data-ride='carousel' data-interval="2000")
+                ol.carousel-indicators
+                    li.active(data-target='#myCarousel', data-slide-to='0')
+                    li(data-target='#myCarousel', data-slide-to='1')
+                    li(data-target='#myCarousel', data-slide-to='2')
+                    li(data-target='#myCarousel', data-slide-to='3')     
+                .carousel-inner(role='listbox')          
+                    .item.active       
+                        img.bg(src='/images/city_images/'+ place.strFirstPic, position="center")
+                        .carousel-caption
+                    .item
+                        img.bg(src='/images/city_images/'+ place.strSecondPic, position='center')
+                        .carousel-caption 
+                    .item
+                        img.bg(src='/images/uploaded_images/experience.png', position='center')
+                        .carousel-caption
+                    .item
+                        img.bg(src='/images/city_images/'+ place.strThirdPic, position='center')
+                        .carousel-caption
+                a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+                    span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                    span.sr-only Previous
+                a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+                    span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                    span.sr-only Next
+            br
+            form( method="POST" action="/home/-comment")
+                .control-group
+                    label.control-label(for='comment') Write your comment
+                        .controls
+                            input#username(type='text', name="comment")
+            br
+            each comment in comments
+                p 
+                    | #{comment.stromments}
+                    | #{comment.strUsername}
+
+

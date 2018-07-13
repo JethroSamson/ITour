@@ -1,0 +1,56 @@
+body {
+    font-family: Trebuchet MS;
+    font-size: 15px;
+}
+
+.search_box {
+    font-family: Trebuchet MS;
+    font-size: 15px;
+	width: 70%;
+    padding: 0.5%;
+    height: 15px;
+}
+
+.reset_hint {
+    margin-left: 2%;
+}
+
+.highlight1 { 
+	background-color: cyan; 
+}
+
+.table {
+    height: 75%;
+}
+
+.table tr {
+    text-align: left;
+    /*background-color: lightcyan;*/
+}
+
+.table th {
+    color: #FFFFFF;
+    background: #1b1e24;
+}
+
+.modal-content{
+    width:70%px;
+    /* background-color: #A9B3BD; */
+}
+.modal-title {
+    font-family: Trebuchet MS;
+    text-align: center;
+
+}
+.qwe{
+    font-family: Trebuchet MS;
+    font-size: 20px;
+}
+.ty{
+    font-family: Trebuchet MS;
+    font-size: 15px;
+}
+.search_box{
+    height: 20px;
+    font-size: 30px;
+}

@@ -1,0 +1,62 @@
+html
+    head
+        link(rel='icon', type='image/png', href='/assets/images/upload_images/logo.ico')
+        title ITour:Metro Manila
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel="stylesheet" href="/assets/bulma/bulma.css")
+        link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css")
+        link(rel="stylesheet" href="semantic/dist/semantic.min.css")
+        script(src='https://code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
+        script(src='semantic/dist/semantic.min.js')
+        link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/masterpug_bg.css")
+        link(rel="stylesheet" href="/assets/font-awesome-4.7.0/css/sidebar.css")
+        script(src="/assets/font-awesome-4.7.0/css/script.js")
+
+    body  
+        nav.navbar
+            div.navbar-brand
+                a.navbar-item.item4(onclick='openNav()') 
+                    h3.txt Cities of Metro Manila
+                #mySidenav.sidenav
+                    a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+                    a(href="/home/cities/manila") Manila
+                    a(href='#') Quezon City
+                    a(href='#') Pasig
+                    a(href='#') Marikina
+                    a(href='#') San Juan
+                    a(href='#') Mandaluyong
+                    a(href='#') Valenzuela
+                    a(href='#') Navotas
+                    a(href='#') Malabon
+                    a(href='#') Taguig
+                    a(href='#') Pateros
+                    a(href='#') Pasay
+                    a(href='#') Parañaque
+                    a(href='#') Muntinlupa
+                    a(href='#') Makati
+                    a(href='#') Las Piñas
+            div.navbar-end
+                div.navbar-brand
+                    a.navbar-item(href="/categories")  Travel Marks
+                div.navbar-brand
+                    a.navbar-item(href="/profile") Travel Views
+                div.navbar-brand
+                    a.navbar-item(href="")
+                        i.fa.fa-user(aria-hidden='true')
+                        |&nbsp Profile
+                div.navbar-end
+                div.navbar-item.has-dropdown.is-hoverable
+                    a.navbar-item.item3
+                        i.fa.fa-cogs
+                        | &nbsp Settings
+                        b &nbsp V
+                        | &nbsp
+                        div.navbar-dropdown.is-right
+                            a.navbar-item.item3(href="/home/rules") Rules
+                            a.navbar-item.item3(href="/home/help") Help
+                            a.navbar-item.item3(href="/login") Log-Out
+        section
+            block content 

@@ -1,2 +1,2 @@
-# iTour
+# ITour
 Manila
